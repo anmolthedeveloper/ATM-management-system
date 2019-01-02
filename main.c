@@ -398,7 +398,7 @@ int updateCustBalance(int balance,int cardNum,who whom)
         if(whom==cust)
             printf("\nDeposited Successfully...");
         else
-            printf("\nUpdated successfully...")
+            printf("\nUpdated successfully...");
     }
     else
         printf("\nId doesn't exist!");
