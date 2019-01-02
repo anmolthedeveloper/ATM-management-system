@@ -527,8 +527,13 @@ void withdrawCash(int cardNum)
         {
             if(c1.card_number==cardNum)
             {
-                c1.balance-=amount;
-                printf("\nCurrent balance : %d \nPlease take your cash...",c1.balance);
+                if((c1.balance-amount)<0)
+                    printf("\nInsufficient balance...");
+                else
+                {
+                    c1.balance-=amount;
+                    printf("\nCurrent balance : %d \nPlease take your cash...",c1.balance);
+                }
 
             }
             fwrite(&c1,sizeof(c1),1,fp1);
