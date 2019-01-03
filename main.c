@@ -97,15 +97,16 @@ void cust_panel(int cardNum)
     customer c1;
     FILE *fp_cust_panel;
     int choice=0;
+    int count=0;
+    top:
     fp_cust_panel=fopen("data.dat","rb");
     checkFile(fp_cust_panel);
     while(fread(&c1,sizeof(c1),1,fp_cust_panel)>0)
     {
-
         if(c1.card_number==cardNum)
         {
             fclose(fp_cust_panel);
-            top:
+            count++;
             clrscr();
             printf("\nWelcome %s\n",c1.cust_name);
             printf("[1]Cash withdraw\n[2]Cash deposit\n[3]Balance\n[4]Main Menu\n[5]Exit\nYour choice : ");
@@ -132,11 +133,11 @@ void cust_panel(int cardNum)
             }
             goto top;
         }
-        else
-        {
-            printf("\nWe don't recognize you try again...");
-            fclose(fp_cust_panel);
-        }
+    }
+    if(count>0)
+    {
+        printf("\nWe don't recognize you try again...");
+        fclose(fp_cust_panel);
     }
 }
 
