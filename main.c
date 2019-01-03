@@ -66,7 +66,7 @@ void admin_panel()
             create_customer();
             break;
         case 2:
-            show_customer(whom=admin,0);
+            show_customer(admin,0);
             break;
         case 3:
             show_all_customer();
